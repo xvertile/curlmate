@@ -19,7 +19,7 @@ Invoke-WebRequest -Uri "https://d2qy48d1h0e7ws.cloudfront.net/curlmate/windows/c
 
 ### macOS
 ```bash
-curl -o /usr/local/bin/curlmate "https://d2qy48d1h0e7ws.cloudfront.net/curlmate/macos/curlmate" && chmod +x /usr/local/bin/curlmate && echo 'export PATH=$PATH:/usr/local/bin' >> ~/.bash_profile && source ~/.bash_profile
+sudo curl -o /usr/local/bin/curlmate "https://d2qy48d1h0e7ws.cloudfront.net/curlmate/macos/curlmate" && sudo chmod +x /usr/local/bin/curlmate && echo 'export PATH=$PATH:/usr/local/bin' >> ~/.bash_profile && source ~/.bash_profile
 ```
 
 ### Linux
