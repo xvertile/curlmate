@@ -29,17 +29,61 @@ curl -o /usr/local/bin/curlmate "https://d2qy48d1h0e7ws.cloudfront.net/curlmate/
 
 ## Usage
 
-Simply run the following command with your proxy details:
+CurlMate supports multiple proxy formats and types, making it flexible for different use cases.
+
+### Basic Usage
 
 ```bash
-curlmate <proxy-host>:<proxy-port>:<username>:<password>
+curlmate <proxy-string>
 ```
 
-It will then form the `curl` command and execute it for you. Example:
-    
+### Supported Formats
+
+CurlMate automatically detects and parses various proxy string formats:
+
+#### 1. Simple proxy without authentication
 ```bash
-curl --proxy http://<username>:<password>@<proxy-host>:<proxy-port> https://ipinfo.io
+curlmate proxy.example.com:8080
 ```
+
+#### 2. Proxy with authentication (original format)
+```bash
+curlmate proxy.example.com:8080:username:password
+```
+
+#### 3. Proxy with @ symbol (pre-formatted)
+```bash
+curlmate username:password@proxy.example.com:8080
+```
+
+#### 4. Proxy with protocol specified
+```bash
+curlmate http://proxy.example.com:8080
+curlmate https://username:password@proxy.example.com:8443
+```
+
+#### 5. SOCKS proxies
+```bash
+curlmate socks4://proxy.example.com:1080
+curlmate socks5://username:password@proxy.example.com:1080
+```
+
+### Supported Proxy Types
+
+- **HTTP** (default)
+- **HTTPS**
+- **SOCKS4**
+- **SOCKS5**
+
+### Example Output
+
+When you run CurlMate, it will form and execute the curl command:
+
+```bash
+curl --proxy http://username:password@proxy.example.com:8080 https://ipinfo.io
+```
+
+The command will display your IP information through the specified proxy.
 
 ## License
 
